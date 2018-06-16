@@ -41,21 +41,27 @@
     #define FB_DARK_GREY 8
     #define FB_BLACK     0
     
-int kmain() {
+
+unsigned int cursor_pos = 0;
+
+int write(char *buf, unsigned int len) {
+    for (unsigned int i = 0; i < len; i++) {
+        fb_write_cell(cursor_pos + (i * 2), buf[i], FB_GREEN, FB_DARK_GREY);
+    }
+    cursor_pos += len;
+    fb_move_cursor(cursor_pos);
+    return len;
+}
+
+void clear_screen() {
     for (int i = 0; i < 4000; i = i + 2) {
         fb_write_cell(i, ' ', FB_BLACK, FB_DARK_GREY);
     }
-    fb_write_cell(0, 't', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(2, 'u', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(4, 's', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(6, 'h', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(8, 't', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(10, 'u', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(12, 's', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(14, 'h', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(16, 'O', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(18, 'S', FB_GREEN, FB_DARK_GREY);
+}
 
-    fb_move_cursor(10);
+int kmain() {
+    clear_screen();
+    char *str = "tushtushOS";
+    write(str, 10);
     return 0;
 }
