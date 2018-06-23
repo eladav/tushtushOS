@@ -1,4 +1,5 @@
 #include "system.h"
+#include "serial.h"
 
 void print_logo() {
     char *line1 = "  _             _     _             _      ___  ____                            ";
@@ -16,6 +17,9 @@ void print_logo() {
 }
 
 int kmain() {
+    unsigned short port = 0;
+    init_serial_port(port);
+    write_serial('b', port);
     clear_screen();
     print_logo();
     return 0;
