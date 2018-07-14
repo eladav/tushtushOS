@@ -1,5 +1,4 @@
 #include "system.h"
-#include "serial.h"
 
 void print_logo() {
     char *line1 = "  _             _     _             _      ___  ____                            ";
@@ -17,14 +16,7 @@ void print_logo() {
 }
 
 int kmain() {
-    
-    unsigned short port = SERIAL_COM1_BASE;
-    init_serial_port(port);
-    write_serial('[', port);
-    write_serial('L', port);
-    write_serial('O', port);
-    write_serial('G', port);
-    write_serial(']', port);
+    log("init", 4, 'I');
     clear_screen();
     print_logo();
     return 0;

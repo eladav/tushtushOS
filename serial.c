@@ -93,7 +93,7 @@
         seriable_configure_modem(com);
     }
 
-    void write_serial(char c, unsigned short com) {
+    void send_byte(char c, unsigned short com) {
         while(serial_is_transmit_fifo_empty(com) == 0);
         outb(SERIAL_DATA_PORT(com), c & 0xFF);
     }
