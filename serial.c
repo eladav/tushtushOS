@@ -7,7 +7,6 @@
      * order, but they start at different values.
      */
 
-    #define SERIAL_COM1_BASE                0x3F8      /* COM1 base port */
 
     #define SERIAL_DATA_PORT(base)          (base)
     #define SERIAL_FIFO_COMMAND_PORT(base)  (base + 2)
@@ -88,14 +87,13 @@
     }
 
     void init_serial_port(unsigned short com) {
-        serial_configure_baud_rate(com, 2);
+        serial_configure_baud_rate(com, 1);
         serial_configure_line(com);
         serial_configure_buffers(com);
         seriable_configure_modem(com);
     }
 
     void write_serial(char c, unsigned short com) {
-        unsigned short port = SERIAL_COM1_BASE + com;
-        while(serial_is_transmit_fifo_empty(port) == 0);
-        outb(SERIAL_DATA_PORT(port), c);
+        while(serial_is_transmit_fifo_empty(com) == 0);
+        outb(SERIAL_DATA_PORT(com), c & 0xFF);
     }

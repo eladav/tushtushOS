@@ -17,9 +17,14 @@ void print_logo() {
 }
 
 int kmain() {
-    unsigned short port = 0;
+    
+    unsigned short port = SERIAL_COM1_BASE;
     init_serial_port(port);
-    write_serial('b', port);
+    write_serial('[', port);
+    write_serial('L', port);
+    write_serial('O', port);
+    write_serial('G', port);
+    write_serial(']', port);
     clear_screen();
     print_logo();
     return 0;
