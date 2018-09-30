@@ -24,5 +24,5 @@
                                                     ; stack (end of memory area)
         extern kmain
         call kmain
-    .loop:
-        jmp .loop                   ; loop forever
+    loop:
+        jmp loop                   ; loop forever
