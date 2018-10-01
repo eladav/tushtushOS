@@ -1,5 +1,5 @@
 #include "system.h"
-#include "io.h"
+#include "gdt_setup.h"
 #include "serial.h"
 
 struct GDTDefinition {
