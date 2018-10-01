@@ -27,6 +27,8 @@ To clean the build output.
 * [Took this GDT entry structure](https://forum.osdev.org/viewtopic.php?p=178894#p178894)
 * [The person I stole the GDT entry from follows this tutorial:](http://www.jamesmolloy.co.uk/tutorial_html/4.-The%20GDT%20and%20IDT.html)
 
+## Useful Bochs stuff
+* `info gdt` to print out the gdt
 
 ## Notes
 This repository is my own personal project so there are some weird things here, e.g. log files etc. the more I work on this the more I'll clean it up.
