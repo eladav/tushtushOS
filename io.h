@@ -16,4 +16,9 @@
      *  @return      The read byte
      */
     unsigned char inb(unsigned short port);
+
+    void setGdt(unsigned long* gdt, unsigned short gdt_size);
+
+    void reloadSegments();
+
     #endif /* INCLUDE_IO_H */
