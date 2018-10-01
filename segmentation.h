@@ -1,0 +1,6 @@
+#ifndef INCLUDE_SEGMENTATION_H
+#define INCLUDE_SEGMENTATION_H
+
+void load_gdt();
+
+#endif /* INCLUDE_SEGMENTATION_H */
